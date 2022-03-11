@@ -1,12 +1,15 @@
-const http = require('http');
-const port = process.env.PORT || 3000;
+const express = require('express')
+const app = express()
+const port = 8080
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  const msg = 'Hello Welcome to RedHat Trainning!\n'
-  res.end(msg);
-});
+app.get('/', (req, res) => {
+  res.send('Hello Welcome to ReadHat Demo!')
+})
 
-server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}/`);
-});
+app.get('/name', (req, res) => {
+  res.send('Hello My Name is Sunil Kumar M')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
